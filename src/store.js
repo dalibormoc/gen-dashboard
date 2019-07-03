@@ -36,6 +36,9 @@ export default new Vuex.Store({
         case "returnable-box":
           json = require("./config/returnable-box.json");
           break;
+        case "all":
+          json = require("./config/all.json");
+          break;
         default:
           json = require("./config/no-active-box.json");
           break;

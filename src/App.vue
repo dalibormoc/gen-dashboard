@@ -35,6 +35,10 @@ export default {
     return {
       configFiles: [
         {
+          title: "all",
+          onClick: () => this.$store.dispatch("loadFile", "all")
+        },
+        {
           title: "no-active-box.json",
           onClick: () => this.$store.dispatch("loadFile", "no-active-box")
         },
@@ -48,6 +52,10 @@ export default {
         }
       ]
     };
+  },
+  created() {
+    //load all widgets
+    this.$store.dispatch("loadFile", "all");
   }
 };
 </script>

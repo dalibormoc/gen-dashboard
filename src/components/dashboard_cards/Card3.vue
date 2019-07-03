@@ -1,18 +1,16 @@
 <template>
   <div style="position: relative;">
-    <v-card
-      style="position: absolute; top: 10px; left: 5px; height: calc(100% - 5px); width: 100%;"
-    >
+    <v-card class="v-card--1">
       <v-img :src="require('../../assets/dashboard/image.png')" contain></v-img>
       <v-card-text>6</v-card-text>
     </v-card>
 
-    <v-card style="position: absolute; top: 5px; left: 0px; height: calc(100% - 5px); width: 100%;">
+    <v-card class="v-card--2">
       <v-img :src="require('../../assets/dashboard/image.png')" contain></v-img>
       <v-card-text>6</v-card-text>
     </v-card>
 
-    <v-card style="top: 0px; left: -5px; height: calc(100% - 5px); width: 100%;">
+    <v-card class="v-card--3">
       <v-img :src="require('../../assets/dashboard/image.png')" contain></v-img>
       <v-card-text>
         <v-layout row wrap class="text-xs-center">
@@ -37,5 +35,29 @@
 export default {};
 </script>
 
-<style>
+<style lang="scss">
+.v-card {
+  &--1 {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    height: calc(100% - 5px);
+    width: 100%;
+  }
+
+  &--2 {
+    position: absolute;
+    top: 5px;
+    left: 0px;
+    height: calc(100% - 5px);
+    width: 100%;
+  }
+
+  &--3 {
+    top: 0px;
+    left: -5px;
+    height: calc(100% - 5px);
+    width: 100%;
+  }
+}
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <v-card dark style="background: linear-gradient(180deg, #6B89F5 0%, #3755BD 100%)">
+  <v-card dark class="v-card--get-new-box">
     <v-card-title class="justify-center">
       <v-layout row wrap>
         <v-flex xs12>
@@ -36,5 +36,10 @@
 export default {};
 </script>
 
-<style>
+<style lang="scss">
+.v-card {
+  &--get-new-box {
+    background: linear-gradient(180deg, #6b89f5 0%, #3755bd 100%);
+  }
+}
 </style>

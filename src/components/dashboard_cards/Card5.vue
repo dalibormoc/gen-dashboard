@@ -1,5 +1,5 @@
 <template>
-  <v-card style="background: linear-gradient(138.04deg, #FFCF97 16.13%, #FDE29C 96.1%)">
+  <v-card class="v-card--sizes">
     <v-card-text class="text-xs-center px-3">
       <v-layout row wrap>
         <v-flex xs12 class="pa-3">
@@ -15,7 +15,7 @@
           >Review your profile and help us stay up to date with your style evolution.</p>
         </v-flex>
         <v-flex xs12>
-          <v-btn color="white" large>REVIEW AND UPDATE MY SIZES</v-btn>
+          <v-btn color="white" large>REVIEW MY SIZES</v-btn>
         </v-flex>
       </v-layout>
     </v-card-text>
@@ -26,5 +26,10 @@
 export default {};
 </script>
 
-<style>
+<style lang="scss">
+.v-card {
+  &--sizes {
+    background: linear-gradient(138.04deg, #ffcf97 16.13%, #fde29c 96.1%);
+  }
+}
 </style>

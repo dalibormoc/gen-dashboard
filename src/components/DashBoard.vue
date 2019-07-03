@@ -8,25 +8,31 @@
     </v-layout>
 
     <v-layout row wrap>
-      <v-flex v-if="dashboardConfig.hasActiveBox" sm6 xs12 pa-2 d-flex>
+      <v-flex
+        v-if="dashboardConfig.hasActiveBox && dashboardConfig.hasAddress"
+        sm6
+        xs12
+        pa-2
+        d-flex
+      >
         <card-1></card-1>
       </v-flex>
-      <v-flex v-if="!dashboardConfig.hasActiveBox" lg3 sm6 xs12 pa-2 d-flex>
+      <v-flex v-if="lastBoxMoreThanMonth" lg3 sm6 xs12 pa-2 d-flex>
         <card-2></card-2>
       </v-flex>
       <v-flex lg3 sm6 xs12 pa-2 d-flex>
         <card-3></card-3>
       </v-flex>
-      <v-flex sm6 xs12 pa-2 d-flex>
+      <v-flex v-if="dashboardConfig.hasReturnableBox" sm6 xs12 pa-2 d-flex>
         <card-4></card-4>
       </v-flex>
-      <v-flex sm6 xs12 pa-2 d-flex>
+      <v-flex v-if="dashboardConfig.hasSizes" sm6 xs12 pa-2 d-flex>
         <card-5></card-5>
       </v-flex>
-      <v-flex sm6 xs12 pa-2 d-flex>
+      <v-flex v-if="dashboardConfig.hasPhotos" sm6 xs12 pa-2 d-flex>
         <card-6></card-6>
       </v-flex>
-      <v-flex lg3 sm6 xs12 pa-2 d-flex>
+      <v-flex v-if="dashboardConfig.lastBoxStarted" lg3 sm6 xs12 pa-2 d-flex>
         <card-7></card-7>
       </v-flex>
     </v-layout>
@@ -55,6 +61,15 @@ export default {
   computed: {
     dashboardConfig() {
       return this.$store.state.dashboardConfig;
+    },
+    lastBoxMoreThanMonth() {
+      const month = 30 * 24 * 60 * 60 * 1000; //month
+      const currentDate = new Date().getTime();
+      const dateOfLastBox = new Date(
+        this.dashboardConfig.lastBoxStarted
+      ).getTime();
+
+      return currentDate >= dateOfLastBox + month;
     }
   }
 };
